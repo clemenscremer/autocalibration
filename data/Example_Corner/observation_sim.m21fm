@@ -1,4 +1,4 @@
-// Created     : 2023-09-11 8:29:29
+// Created     : 2023-09-11 8:55:11
 // DLL         : C:\Program Files (x86)\DHI\MIKE Zero\2023\bin\x64\pfs2004.dll
 // Version     : 21.0.0.16275
 
@@ -102,7 +102,7 @@
       Touched = 1
       start_time = 2014, 1, 1, 0, 0, 0
       time_step_interval = 60.0
-      number_of_time_steps = 360
+      number_of_time_steps = 720
    EndSect  // TIME
 
    [MODULE_SELECTION]
@@ -340,7 +340,7 @@
             type = 4
             format = 2
             constant_value = 75.0
-            file_name = |.\manning_number.dfsu|
+            file_name = |.\manning_number_obs.dfsu|
             item_number = 1
             item_name = 'Manning number'
             type_of_soft_start = 2
@@ -1607,19 +1607,19 @@
          file_name_volume = ||
          specification_file = ||
          first_time_step = 0
-         last_time_step = 360
+         last_time_step = 720
          time_step_frequency = 1
       EndSect  // DECOUPLING
 
       [OUTPUTS]
          Touched = 1
-         MzSEPfsListItemCount = 3
-         number_of_outputs = 3
+         MzSEPfsListItemCount = 2
+         number_of_outputs = 2
          [OUTPUT_1]
             Touched = 1
             include = 1
             title = 'HD area'
-            file_name = 'SimA_HD.dfsu'
+            file_name = 'SimObs_HD.dfsu'
             type = 1
             format = 2
             flood_and_dry = 2
@@ -1630,7 +1630,7 @@
             interpolation_type = 1
             use_end_time = 1
             first_time_step = 0
-            last_time_step = 360
+            last_time_step = 720
             time_step_frequency = 60
             number_of_points = 1
             [POINT_1]
@@ -1718,20 +1718,20 @@
                Touched = 0
                SURFACE_ELEVATION = 1
                STILL_WATER_DEPTH = 0
-               TOTAL_WATER_DEPTH = 1
-               U_VELOCITY = 1
-               V_VELOCITY = 1
+               TOTAL_WATER_DEPTH = 0
+               U_VELOCITY = 0
+               V_VELOCITY = 0
                P_FLUX = 0
                Q_FLUX = 0
                CURRENT_SPEED = 1
-               CURRENT_DIRECTION = 0
+               CURRENT_DIRECTION = 1
                WIND_U_VELOCITY = 0
                WIND_V_VELOCITY = 0
                AIR_PRESSURE = 0
                PRECIPITATION = 0
                EVAPORATION = 0
                BED_RESISTANCE_COEFFICIENT = 0
-               DRAG_COEFFICIENT = 1
+               DRAG_COEFFICIENT = 0
                BED_SHEARSTRESS = 0
                BED_SHEARSTRESS_X_COMPONENT = 0
                BED_SHEARSTRESS_Y_COMPONENT = 0
@@ -1796,7 +1796,7 @@
             Touched = 1
             include = 1
             title = 'HD points'
-            file_name = 'SimA_HD.dfs0'
+            file_name = 'PointsObs.dfs0'
             type = 1
             format = 0
             flood_and_dry = 2
@@ -1807,7 +1807,7 @@
             interpolation_type = 1
             use_end_time = 1
             first_time_step = 0
-            last_time_step = 360
+            last_time_step = 720
             time_step_frequency = 1
             number_of_points = 3
             [POINT_1]
@@ -1849,191 +1849,6 @@
                EndSect  // POINT_2
 
                npoints = 3
-            EndSect  // LINE
-
-            [PLANE]
-               number_of_points = 2
-               [POINT_1]
-                  x = 0.0
-                  y = 0.0
-               EndSect  // POINT_1
-
-               [POINT_2]
-                  x = 1500.0
-                  y = 1500.0
-               EndSect  // POINT_2
-
-               layer_min = 1
-               layer_max = 10
-               z_min = -2.0
-               z_max = 0.3999999999999999
-               npoints_horizontal = 20
-               npoints_vertical = 10
-            EndSect  // PLANE
-
-            [AREA]
-               number_of_points = 4
-               [POINT_1]
-                  x = -15.0
-                  y = -15.0
-               EndSect  // POINT_1
-
-               [POINT_2]
-                  x = -15.0
-                  y = 1515.0
-               EndSect  // POINT_2
-
-               [POINT_3]
-                  x = 1515.0
-                  y = 1515.0
-               EndSect  // POINT_3
-
-               [POINT_4]
-                  x = 1515.0
-                  y = -15.0
-               EndSect  // POINT_4
-
-               layer_min = 1
-               layer_max = 10
-               orientation = 0.0
-               x_origo = 0.0
-               x_ds = 78.94736842105263
-               x_npoints = 20
-               y_origo = 0.0
-               y_ds = 78.94736842105263
-               y_npoints = 20
-               z_origo = -2.0
-               z_ds = 0.2666666666666667
-               z_npoints = 10
-            EndSect  // AREA
-
-            [PARAMETERS_2D]
-               Touched = 0
-               SURFACE_ELEVATION = 1
-               STILL_WATER_DEPTH = 0
-               TOTAL_WATER_DEPTH = 1
-               U_VELOCITY = 0
-               V_VELOCITY = 0
-               P_FLUX = 0
-               Q_FLUX = 0
-               CURRENT_SPEED = 1
-               CURRENT_DIRECTION = 0
-               WIND_U_VELOCITY = 0
-               WIND_V_VELOCITY = 0
-               AIR_PRESSURE = 0
-               PRECIPITATION = 0
-               EVAPORATION = 0
-               BED_RESISTANCE_COEFFICIENT = 0
-               DRAG_COEFFICIENT = 1
-               BED_SHEARSTRESS = 0
-               BED_SHEARSTRESS_X_COMPONENT = 0
-               BED_SHEARSTRESS_Y_COMPONENT = 0
-               EDDY_VISCOSITY = 0
-               CFL_NUMBER = 0
-               CONVERGENCE_ANGLE = 0
-               AREA = 0
-            EndSect  // PARAMETERS_2D
-
-            [PARAMETERS_3D]
-               Touched = 0
-               U_VELOCITY = 1
-               V_VELOCITY = 1
-               W_VELOCITY = 1
-               WS_VELOCITY = 0
-               CURRENT_SPEED = 0
-               CURRENT_DIRECTION_HORIZONTAL = 0
-               CURRENT_DIRECTION_VERTICAL = 0
-               HORIZONTAL_EDDY_VISCOSITY = 0
-               VERTICAL_EDDY_VISCOSITY = 0
-               CFL_NUMBER = 0
-               VOLUME = 0
-            EndSect  // PARAMETERS_3D
-
-            [DISCHARGE]
-               Touched = 0
-               Type = 1
-               domain = 1
-               DISCHARGE = 1
-               ACCUMULATED_DISCHARGE = 1
-               DISCHARGE_POSITIVE = 1
-               ACCUMULATED_DISCHARGE_POSITIVE = 1
-               DISCHARGE_NEGATIVE = 1
-               ACCUMULATED_DISCHARGE_NEGATIVE = 1
-               FLOW = 1
-            EndSect  // DISCHARGE
-
-            [MASSBUDGET]
-               Touched = 0
-               DISCHARGE = 1
-               ACCUMULATED_DISCHARGE = 1
-               FLOW = 1
-            EndSect  // MASSBUDGET
-
-            [INUNDATION]
-               Touched = 0
-               MAXIMUM_HEIGHT = 1
-               MAXIMUM_SURFACE_ELEVATION = 1
-               TIME_MAXIMUM_HEIGHT = 1
-               MAXIMUM_CURRENT_SPEED = 1
-               U_VELOCITY_AT_MAXIMUM_CURRENT_SPEED = 1
-               V_VELOCITY_AT_MAXIMUM_CURRENT_SPEED = 1
-               TIME_MAXIMUM_CURRENT_SPEED = 1
-               DURATION_ABOVE_THRESHOLD = 1
-               TIME_FIRST_ABOVE_THRESHOLD = 1
-               threshold_height = 0.0
-            EndSect  // INUNDATION
-
-         EndSect  // OUTPUT_2
-
-         [OUTPUT_3]
-            Touched = 1
-            include = 1
-            title = 'points'
-            file_name = 'points.dfs0'
-            type = 1
-            format = 0
-            flood_and_dry = 2
-            coordinate_type = 'PROJCS["UTM-32",GEOGCS["Unused",DATUM["UTM Projections",SPHEROID["WGS 1984",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["Degree",0.0174532925199433]],PROJECTION["Transverse_Mercator"],PARAMETER["False_Easting",500000],PARAMETER["False_Northing",0],PARAMETER["Central_Meridian",9],PARAMETER["Scale_Factor",0.9996],PARAMETER["Latitude_Of_Origin",0],UNIT["Meter",1]]'
-            zone = 0
-            input_file_name = ||
-            input_format = 1
-            interpolation_type = 2
-            use_end_time = 1
-            first_time_step = 0
-            last_time_step = 360
-            time_step_frequency = 1
-            number_of_points = 2
-            [POINT_1]
-               name = 'point 1'
-               x = 500.0
-               y = 1250.0
-               z = -2.0
-               layer = 1
-            EndSect  // POINT_1
-
-            [POINT_2]
-               name = 'Point 2'
-               x = 1250.0
-               y = 500.0
-               z = -2.0
-               layer = 1
-            EndSect  // POINT_2
-
-            [LINE]
-               number_of_points = 2
-               [POINT_1]
-                  x = 0.0
-                  y = 0.0
-                  z = -2.0
-               EndSect  // POINT_1
-
-               [POINT_2]
-                  x = 1500.0
-                  y = 1500.0
-                  z = -2.0
-               EndSect  // POINT_2
-
-               npoints = 20
             EndSect  // LINE
 
             [PLANE]
@@ -2168,7 +1983,7 @@
                threshold_height = 0.0
             EndSect  // INUNDATION
 
-         EndSect  // OUTPUT_3
+         EndSect  // OUTPUT_2
 
       EndSect  // OUTPUTS
 
